@@ -1,0 +1,14 @@
+# .gitignore
+# Ignorar arquivos de ambiente e dependências
+.env
+venv/
+__pycache__/
+*.pyc
+
+# Ignorar arquivos de IDEs
+.vscode/
+.idea/
+
+# Ignorar arquivos temporários do sistema
+.DS_Store
+Thumbs.db
