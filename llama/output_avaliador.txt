@@ -1,0 +1,783 @@
+📂 Lendo arquivos flaky de: ./flaky
+----------------------------------------
+📄 Total Flaky (Pasta):  178
+📄 Total Clean (Zip):    22354
+----------------------------------------
+⚖️  Selecionando 178 arquivos aleatórios de cada grupo.
+🔀 Dataset embaralhado.
+[1/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 291 (char 337) | SwiftNIO_testEcnAndPacketInfoReceive.swift
+[2/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 67 (char 112) | 273e2203_testMaxSizeIsChanged.swift
+[3/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: ab79e58e_testPause_BufferSession.swift
+   └── Motivo: Uso de `dateProvider.advance(by:)` para sincronizar temporais e não há sinais de Flakiness.
+[4/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_Package_testSwiftRunSIGINT.swift
+   └── Motivo: Uso de `sleep()` sem justificativa e uso de `Thread.sleep()` não é recomendado.
+[5/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._swift_snapshot_testNSView.swift
+   └── Motivo: Não é um código de teste que afete a concorrência.
+[6/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 94 (char 145) | 8e6c3f2b_testSerialNumberInits.swift
+[7/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 8a355ef6_test_FilePathRoot_initWithArrayConversion.swift
+   └── Motivo: Uso de baseAddress para obtendo a direção do arquivo é uma forma válida de obter o diretório do arquivo em sistemas UNIX.
+[8/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_AutoconsentMessageProtocolTests.swift
+   └── Motivo: Usagem adequada de expectasync
+[9/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 106 (char 154) | ios_oss_testLoggedOut_NonBacker_LiveProjectSwitchedToCampaignTab_Success.swift
+[10/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: b7decc3a_test_compareExchange_releasing.swift
+   └── Motivo: O uso de `defer` e `performAsync` garantida a exclusão da thread, evitando que o teste seja considerado Flakie em plataformas multi-processores.
+[11/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 90 (char 136) | ._Swift_Package_testCache.swift
+[12/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 304542c2_testInit.swift
+   └── Motivo: Uso de XCTAssert com um valor fixo e não há expectativas, o que pode indicar uma dependência de dados reais em vez de um mock ou stub.
+[13/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: e108d2ab_testIsExpandedValuesForFAQsSection.swift
+   └── Motivo: Nenhuma explicação técnica apresentada.
+[14/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 96 (char 142) | 984fd700_test_compareExchange_releasing_sequentiallyConsist.swift
+[15/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 878bb278_test_weakCompareExchange_relaxed_relaxed.swift
+   └── Motivo: O uso de 'thread.sleep' e 'asyncAfter' com tempos fixos, assim como o uso de 'Date.now', indica que o teste pode ser considerado FLAKY.
+[16/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 99 (char 147) | nuke_testGivenTwoRequestWhereOnlyOneHasDiskWritesDisabled.swift
+[17/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._GRDB_testErrorLog.swift
+   └── Motivo: Uso de thread.sleep() sem uma Threadpool.
+[18/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 74be867f_testNonDegeneratePolygonWithColinearPoints.swift
+   └── Motivo: Uso de Vector com valores fixos para coordenadas em um contexto que depende de animações e reais cálculos.
+[19/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 120 (char 168) | Alamofire_testThatRevokedCertificateRequestFailsWithRevokedServerTrustPolicy.swift
+[20/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 60 (char 108) | GRDB_testObserverInvalidation1.swift
+[21/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 750083d1_testSubscriptArrayWithCountableClosedRange.swift
+   └── Motivo: Uso de AnyExpression com countable range sem uso de intervalo especificado.
+[22/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: af80be3b_test_load_relaxed.swift
+   └── Motivo: O uso de `defer` e `load(ordering:) .relaxed` garantiza que a operação seja realizada em uma thread separada, minimizando a interrupção do sistema..
+[23/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: b8b654c6_testCustomDebugStringConvertible.swift
+   └── Motivo: Sem uso de threading para manipulação de dados, o teste não é intermitente.
+[24/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 129 (char 175) | 10f8a679_testWriteFourByteQUICVariableLengthInteger.swift
+[25/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Swift_Composable_testConcatenateOneEffect.swift
+   └── Motivo: Uso de Delay para retardar a execução da função, sem o uso de Mocks/Stub ou Dependências que possam causar Flakiness.
+[26/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: c6d0b6b8_testThatUnknownSchemesAreNotSupported.swift
+   └── Motivo: Uso de URL string com protocolo 'other://' sem dependência da rota, o que não é um sinal típico de Flakiness.
+[27/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 98 (char 143) | d7c6d154_testResponseNoContentLengthHeader.swift
+[28/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: a81217a3_testZero.swift
+   └── Motivo: Uso de `XCTAssertEqual` sem expectativa.
+[29/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: SwiftNIO_testRepeatedTaskThatIsCancelledAfterRunningAtLeastTwiceNotifies.swift
+   └── Motivo: Uso de `defer` para chamada do eventLoopGroup.syncShutdownGracefully(); isso não parece ser um caso clássico de Flakiness.
+[30/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 4e378656_testParameterizedStringConstant.swift
+   └── Motivo: Uso de `evaluate()` em uma Expressão, que é uma operação recursiva e pode ser computacionalmente complexa.
+[31/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: bce56e11_testIsInactiveNewUser_noFirstAppUse.swift
+   └── Motivo: Não há sintomas de flakiness nesse teste, a função `set` chama `date()` sem uso de thread ou asyncAfter para garantir que a atualização seja feita em sequência.
+[32/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 78ca9071_test_compareExchange_acquiringAndReleasing_sequent.swift
+   └── Motivo: Uso adequado de `compareExchange` com successOrdering = .acquiringAndReleasing, que garantiza a ordenação sequencial e consistente entre os casos.
+[33/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 105 (char 153) | nuke_testProgressUpdated.swift
+[34/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 120 (char 168) | firefox_dragAndDrop.swift
+[35/356] ⚠️ ERRO API: Unterminated string starting at: line 4 column 13 (char 61) | 2eb67d9a_testWhenURLSavedNotStoredInPlainText.swift
+[36/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: b3b2a20c_testUpdateLanguage.swift
+   └── Motivo: Uso de X XCTAssertEqual e AppEnvironment.current.language é chamado em várias linhas do código, o que pode causar flakiness se a linguagem atual não for exatamente .en.
+[37/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 125 (char 170) | c3d2dc5b_testRemoveInMiddle.swift
+[38/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Nuke_testPolicyStoreEncodedImagesGivenTwoRequests.swift
+   └── Motivo: Uso de Thread.sleep() com um tempo fixo, que pode ser considerado uma prática indesejável em códigos de testes, pois pode causar testes intermitentes.
+[39/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Vapor_testWebSocketClient.swift
+   └── Motivo: Nenhum sinal de Flakiness observado no código.
+[40/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 77a202d2_testStreamRequestBodyWithFalseKnowledgeAboutLength.swift
+   └── Motivo: Uso de closure com parâmetros fixos, o que não é comum na Swift e pode estar relacionado a um bug.
+[41/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: b110c201_testThatFailureImageTransitionIsUsed.swift
+   └── Motivo: Uso de Thread.sleep() com tempo fixo sem necessidade.
+[42/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 142 (char 193) | 1a75beb8_testOverrideDependenciesDirectlyOnStore.swift
+[43/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_testWhenRecentlyStartedImportAndSyncAuthStateIsActiveAndHasNotSyncedDesktopDeviceThenNoPixelFired.swift
+   └── Motivo: Uso de sleep() com tempo fixo
+[44/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 172 (char 217) | 6fc5bd1d_testWhenNoUaAndDesktopFalseThenFallbackMobileAgent.swift
+[45/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 3c34a2b1_testShareSheetRouteUrlOnly.swift
+   └── Motivo: Uso de URLString com String literal como valor absoluto para a URL.
+[46/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_testBarStateHiddenWhenScrollDownKeepsHiddenState.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo para evitar bloqueios, o que não é recomendável em Testes Unitários ou UI Tests para evitar bloqueio do sistema.
+[47/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 135 (char 180) | 46d5a96d_test_compareExchange_sequentiallyConsistent_sequen.swift
+[48/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_ContentBlockingRulesTests.swift
+   └── Motivo: Uso de `Thread.sleep()` e `asyncAfter` com tempos fixos, chamadas reais de rede e dependência de Data/Hora do sistema.
+[49/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: b0071122_testInitWithJson_Status_MapsToCorrectStatus.swift
+   └── Motivo: Uso de Dates e Datetime, que é uma API externa (sentry.com) e não pode ser controlada ou mockada.
+[50/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 85538702_test_weakCompareExchange_relaxed.swift
+   └── Motivo: Uso de `defer` para liberar a memória, o que não é considerado um sinal de flakiness em este caso.
+[51/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._kingfisher_testShouldDownloadAndCacheProcessedImage.swift
+   └── Motivo: Uso de Threads e Data() como método para sincronizar a execução do teste em diferentes momentos, o que pode gerar inconvenientes de estabilidade no sistema.
+[52/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 100 (char 145) | SentryCocoa_testFlush_BlocksCallingThread_TimesOut.swift
+[53/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duckduckgo_test_WhenAccountRemoved_ErrorHandlerSyncDidTurnOffCalled.swift
+   └── Motivo: Uso de await vc.confirmAndDeleteAllData() em Task
+[54/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_test_whenClearingData_ThenCookiesAreRemoved.swift
+   └── Motivo: Uso de `sleep()` em uma sequência de chamadas ao servidor.
+[55/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: GRDB_testErrorLog.swift
+   └── Motivo: Uso de `execute` com string, sem uso de queryBuilder.
+[56/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testGivenTwoRequestWhereOnlyOneHasDiskWritesDisabled.swift
+   └── Motivo: Não há sinais de alerta.
+[57/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 65fbbe56_test_loadThenBitwiseAnd_relaxed.swift
+   └── Motivo: Uso de UnsafeAtomic para sincronizar a acessaao ao valor que foi atualizado anteriormente.
+[58/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: GRDB_testBusyModeTimeoutTooShort.swift
+   └── Motivo: Uso de setTimeout() no thread 'main' com um tempo fixo (1s) sem uso de Thread.sleep(), asyncAfter, delay().
+[59/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 142 (char 188) | 94211145_testConsolidation_sameCredentialDoesntUpdateDate.swift
+[60/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_AutoconsentBackgroundTests.swift
+   └── Motivo: Uso de 'sleep()' com tempo fixo sem necessidade.
+[61/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: aae12053_testSyntaxLazyTrivia.swift
+   └── Motivo: Uso de XCTAssert XCTAssertEqual() para comparar valor fixo e função natural da Swift
+[62/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 114 (char 159) | e24888e5_test_weakCompareExchange_releasing_relaxed.swift
+[63/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 90 (char 138) | 044ef39a_testDataFrameDecodeFailureRootStream.swift
+[64/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 96 (char 141) | ef982cc4_testObservation_ExternalMutation.swift
+[65/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: swift_snapshot_testNSView.swift
+   └── Motivo: Não Flakiness: Usos corretos de 'assertSnapshot' e 'sizeToFit'.
+[66/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 147 (char 192) | 92a02db3_test_loadThenBitwiseXor_releasing.swift
+[67/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 76 (char 121) | ._KingFIsher_testRetrievingErrorsWithAlternativeSource.swift
+[68/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 104 (char 149) | Maccy_testRemoveAndRestoreMenubarIcon.swift
+[69/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 674955e6_testVariousContiguousStorageAccessors.swift
+   └── Motivo: Uso de `moveReaderIndex` e `moveWriterIndex` com um índice no final do fluxo de leitura não é um sinal claro de flakiness.
+[70/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 97 (char 145) | e12b5982_testCreatingConnections.swift
+[71/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 273e2203_testRemovingRecent.swift
+   └── Motivo: Uso de `XCTAssertEqual` com uma função sem parâmetros.
+[72/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 129 (char 175) | f33ee4bf_testNSLocale.swift
+[73/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 196 (char 241) | 6a7750a5_testStart_withDownloadsHomepanelSection_setsUpLibr.swift
+[74/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 81 (char 126) | ac93387d_testReplaceFlushed.swift
+[75/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d6e8a177_testAndAllCompleteWithPreSucceededFutures.swift
+   └── Motivo: Não Flakiness: Usos comuns de andAllComplete() em EventLoopFuture.
+[76/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SwiftNIO_testSetLastAccessAndLastDataModificationTimesToNil.swift
+   └── Motivo: Uso de 'sleep()' e Thread.sleep() com valores fixos, o que não faz sentido na sintaxe do Swift.
+[77/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 74dde035_testReplaceMultiByteCharWithShorter.swift
+   └── Motivo: Uso de Thread.sleep com tempo fixo não necessário em um contexto que não possui necessidade de paradas em seu test.
+[78/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: af6ecb94_test_wrappingIncrementThenLoad_acquiring.swift
+   └── Motivo: Uso de `wrappingIncrementThenLoad` com uma operação que não admite retenção (AND) na ordem 'acquiring'.
+[79/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SwiftNIO_testTouchFile.swift
+   └── Motivo: Uso frequente de 'sleep()' e outros métodos semelhantes que podem causar bloqueios na thread.
+[80/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 177 (char 222) | 8c68decb_test_load_relaxed.swift
+[81/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 122 (char 170) | ._signal_test_respectsQueueOrder.swift
+[82/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._GRDB_testBusyCallback.swift
+   └── Motivo: Uso de Thread.sleep com um tempo fixo não é uma preocupação aqui, mas usar de forma indesejada a Thread.sleep pode ser considerado Flakiness.
+[83/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 89 (char 134) | 8bb8469b_testWhenTabsAddedViewedIsFalse.swift
+[84/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_package_testAsyncStream.swift
+   └── Motivo: Uso de `sleep()` sem tempo fixo e não uma funcionalidade comprovada para garantir a execução do teste em um ambiente específico.
+[85/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 102 (char 147) | SwiftNIO_waitForUpgraderToBeRemoved.swift
+[86/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_testBarStateHiddenWhenScrollUpUpdatesToRevealedState.swift
+   └── Motivo: Uso de strings intermisso com caracteres e espaços na string.
+[87/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 114 (char 165) | Swift_package_testCommandPluginInvocation.swift
+[88/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 96 (char 142) | dec783bc_testAttributedString_DecimalSeparator.swift
+[89/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._swift_snapshot_testPrecision.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo, não é necessário para o desempenho dos sistemas modernos e não apresenta condições de Flakiness.
+[90/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 28583716_testCloseConnectionIfIdleRace.swift
+   └── Motivo: Uso de loops de eventos em vez de Threads e uso de closures para gerenciar recursos.
+[91/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: firefox_testAutofillCreditCardsToggleOnOoff.swift
+   └── Motivo: Nenhuma instabilidade ou condição específica do teste detectada.
+[92/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: b66982d3_testRetryAfterHeaderIsEmpty.swift
+   └── Motivo: Uso de getCurrentDate() sem injeção do DateProvider para determinar o tempo.
+[93/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 5dd27db6_testGettingAuthenticatedUser.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo para determinar a resolução do test, o que pode causar inconvenientes de estabilidade e teste.
+[94/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Maccy_testRemoveAndRestoreMenubarIcon.swift
+   └── Motivo: Uso de sleep() com um tempo fixo, o que pode causar latência e não satisfazer as expectativas do teste.
+[95/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: KingFisher_testCachedImageIsFetchedSynchronouslyFromTheMemoryCache.swift
+   └── Motivo: Nenhum sinal de flakiness detectado.
+[96/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 151 (char 199) | 750083d1_testSubscriptStringDictionaryWithString.swift
+[97/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._KingFisher_testCachedImageIsFetchedSynchronouslyFromTheMemoryCache.swift
+   └── Motivo: Uso de dados reais sem uso adequado de Mocks/Stubs.
+[98/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 122 (char 168) | 2882923f_testUnregisteredTimestamps.swift
+[99/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 87 (char 132) | GRDB_testObserverInvalidation2.swift
+[100/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._signal_testProvisioning.swift
+   └── Motivo: Não
+[101/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 99 (char 147) | Signal_testThingsThatLookLikeGroupIdNotScrubbed.swift
+[102/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 139 (char 184) | firefox_testBackArrowNavigation.swift
+[103/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Signal_testBuildParametersWithInvalidDevice.swift
+   └── Motivo: Não detectada
+[104/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 140 (char 185) | d2527062_test_weakCompareExchange_sequentiallyConsistent_re.swift
+[105/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 8cd682f6_testEstimatedProgress_givenNoURL_thenCallsOnHidePr.swift
+   └── Motivo: 
+[106/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 54 (char 99) | ._firefox_testPrivateHomepageViewController_simpleCreation_hasNoLeaks.swift
+[107/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 172 (char 216) | ._duckduckgo_test_WhenAccountRemoved_ErrorHandlerSyncDidTurnOffCalled.swift
+[108/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 044ef39a_testDataFrameDecodeFailureExcessPadding.swift
+   └── Motivo: Uso de `let buf = self.byteBuffer(withBytes: frameBytes)` sem uso de `buf.read()` ou `buf.write()`.
+[109/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 706d9f34_test_weakCompareExchange_acquiring.swift
+   └── Motivo: Uso de `weakCompareExchange` com uma estratégia adicional para garantir a exclusão e a restauração da lock, o que ajuda a prevenir flakiness.
+[110/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Swift_package_testAsyncStream.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo, que pode induzir em testes FLAKY.
+[111/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 57f43805_testWhenSubscribeToViewStateThenShouldSendLanding.swift
+   └── Motivo: Uso de 'sleep()' no método 'state'. Este método não é esperado a fazer algo que depender do tempo real, o que pode causar dependências flacicas.
+[112/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 186 (char 231) | 0dabcb08_testImageAssetInFrameworkBundleByID.swift
+[113/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 122 (char 170) | SentryCocoa_testFlush_CalledMultipleTimes_ImmediatelyReturnsFalse.swift
+[114/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d75bad97_testInit_enableViewRendererV2Omitted_shouldUseDefa.swift
+   └── Motivo: Uso adequado de parameters, incluindo `options.sessionSampleRate` e `options.onErrorSampleRate`, com valores fixos e consistentes.
+[115/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_Package_testConcurrency.swift
+   └── Motivo: Uso de sleep(), Thread.sleep() e asyncAfter com tempos fixos, além de dependências de Data/Hora do sistema sem injeção e uso de números aleatórios.
+[116/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 149 (char 195) | f76134e4_testParseTrailingFlag.swift
+[117/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_testWhenRecentlyStartedImportAndSyncAuthStateIsActiveAndHasSyncedDesktopDeviceThenSuccessPixelFired.swift
+   └── Motivo: Uso de variáveis não passíveis de alteração no contexto do teste (HMAC).
+[118/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 152 (char 200) | a8fe742b_testVectorWrites.swift
+[119/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_Composable_testConcatenateOneEffect.swift
+   └── Motivo: Uso de Thread.sleep() com um tempo fixo.
+[120/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 180 (char 225) | 488ae8be_test_weakCompareExchange_relaxed_relaxed.swift
+[121/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 119 (char 167) | 27fb3c3a_test_bitwiseXorThenLoad_acquiringAndReleasing.swift
+[122/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 139 (char 185) | nuke_testThatAttachedDataIsPassed.swift
+[123/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 3be0ad3f_testStandardDescriptors.swift
+   └── Motivo: Usada apenas uma vez, mas sem preocupações de dependência ou uso de threads.
+[124/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 65 (char 111) | e12fa347_testMockTimeStartSpan.swift
+[125/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Alamofire_testThatRevokedCertificateRequestFailsWithRevokedServerTrustPolicy.swift
+   └── Motivo: Uso de valores não fixos e aleatórios como `Date()` para determinar a last used date.
+[126/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 65 (char 113) | 6f98c63d_testInterleavedSequenceFollowedByOptionalSeparator.swift
+[127/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 196 (char 241) | bacadd67_testThatOnHTTPResponseCanContinueStream.swift
+[128/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 152 (char 200) | 016cd634_testMissingInput.swift
+[129/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 168 (char 213) | Maccy_testHideAndShowMenubarIcon.swift
+[130/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 0cae53c1_test_create_destroy.swift
+   └── Motivo: Uso de `load` sem anotar a thread (UnsafeMutableValue), portanto não é uma Flakiness típica.
+[131/356] ⚠️ ERRO API: Extra data: line 6 column 1 (char 163) | da415a34_testOptionalInterpolationWithNil.swift
+[132/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._GRDB_test_async_observationLifetime_early_release.swift
+   └── Motivo: Nenhuma explicação técnica relevante foi encontrada no código. Ele parece ser um caractere do Mac OS X, uma mensagem de cabeça do terminal e um comando Apple.
+[133/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d2527062_test_compareExchange_sequentiallyConsistent_acquir.swift
+   └── Motivo: Uso de `defer` para acirrar a limitada vida útil do objeto, e não é necessário usar `sleep()` ou `asyncAfter`.
+[134/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 76 (char 122) | SwiftNIO_testCancelledScheduledTasksDoNotHoldOnToRunClosure.swift
+[135/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._firefox_testHamburgerMenuNewPrivateTab.swift
+   └── Motivo: Uso de Date() e Date.now(), sem injeção para garantir a precisão dos testes, utilizando frameworks como URLSession.
+[136/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 151 (char 199) | GRDB_testBusyCallback.swift
+[137/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 104 (char 152) | Swift_Package_testConcurrencyNoWarmUp.swift
+[138/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 104 (char 150) | bf222af9_testClearMemoryCache.swift
+[139/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._GRDB_testObserverInvalidation1.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo não é recomendável, pois pode causar blocos no desempenho do aplicativo.
+[140/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 120 (char 165) | 21a9152c_testClearDiskCache.swift
+[141/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_test_WhenClearingDataAfterUsingContainer_ThenCookiesAreMigratedAndOldContainersAreRemoved.swift
+   └── Motivo: Uso de `sleep()` e `Thread.sleep()` em parâmetros fixos sem semente fixa para garantir uma experiência de usuário consistente, além do uso de Data/Hora do sistema (`Date()`) sem injeção.
+[142/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: ed470571_testJSONDecoding_IncompleteData.swift
+   └── Motivo: Uso de `decodeJSONDictionary` com um array, que pode ser considerado não determinístico. Além disso, a ausência de uma expectativa na operação estática (`expect`) não ajuda a identificar esse caso de flakiness.
+[143/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d2527062_test_weakCompareExchange_acquiringAndReleasing_acq.swift
+   └── Motivo: Uso de `weakCompareExchange` com sucessoOrdering e não chamou `wait()` no final da thread, o que permite a concorrência entre operações de acquisição e reação.
+[144/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 124 (char 169) | ._firefox_dragAndDrop.swift
+[145/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: a869c31a_testIsEndDateAfterToday_Reward_EndsAt_FutureDate.swift
+   └── Motivo: Uso de MockDate().timeIntervalSince1970 + 60 é uma operação calculadora que depende de um ponto fixo no tempo, mas não tem expectativa para o resultado.
+[146/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 178 (char 224) | d95877dd_testRewardShippingRuleExpanded_Match.swift
+[147/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 07aec202_testCloseConnectionIfIdleButLeasedRaceCondition.swift
+   └── Motivo: Não há sinais de race condition comprovados, o que sugere que a operação não envolve um problema de concorrência significativa.
+[148/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 228 (char 274) | Nuke_testPolicyStoreEncodedImagesGivenTwoRequests.swift
+[149/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: fa80b5d0_test_compareExchange_relaxed_relaxed.swift
+   └── Motivo: Uso de `defer` e ` v.load(ordering: .relaxed)` para controlar a thread, evitando uma competição desnecessária entre threads.
+[150/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 128 (char 173) | Swift_Composable_testRunEscapeFailure.swift
+[151/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 425ae1f6_testSeedDominatesActualValue.swift
+   └── Motivo: Não há sinais de Flakiness em este código.
+[152/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 00814a6e_testIs_Optional.swift
+   └── Motivo: 
+[153/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 93 (char 141) | 17545298_testLayer_a11yroot_isUpgrade.swift
+[154/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 39c05109_testWeFailTheSecondRemoval.swift
+   └── Motivo: Uso de EventLoopPromise com parâmetros, o que pode causar problemas de concorrência e semelhanças entre futuros chamadas.
+[155/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 104 (char 149) | 488ae8be_test_bitwiseAndThenLoad_releasing.swift
+[156/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SentryCocoa_testFlush_CalledMultipleTimes_ImmediatelyReturnsFalse.swift
+   └── Motivo: Nenhum dado exposto indica a Flakiness do código.
+[157/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 58 (char 103) | 4863ae17_test_weakCompareExchange_releasing_sequentiallyCon.swift
+[158/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: nuke_testImagePreviewsAreDeliveredFromMemoryCacheSynchronously.swift
+   └── Motivo: Uso de `expectation` com um valor de expectedFulfillmentCount muito alto pode causar flakiness.
+[159/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 56 (char 104) | nuke_testCustomDelegate.swift
+[160/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: SwiftNIO_testSetLastAccessAndLastDataModificationTimesToNil.swift
+   └── Motivo: Uso de informações que não refletem a condição da aplicação em um nível específico.
+[161/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_testBarStateHiddenWhenScrollDownKeepsHiddenState.swift
+   └── Motivo: Não há sinais de Flakiness na análise do código.
+[162/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 118 (char 164) | duck_duck_test_WhenRemoveCookiesForDomains_ThenUnaffectedLeftBehind.swift
+[163/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 31 (char 76) | ._duck_duck_testClearDataUsingLegacyContainer.swift
+[164/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._ios_oss_testLoggedOut_NonBacker_LiveProjectSwitchedToCampaignTab_Success.swift
+   └── Motivo: Uso de Thread.sleep em um contexto de teste, pois não há uma maneira clara de esperar o desempenho.
+[165/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 3d34f609_testWhenInBrowsingEmptyEditingStateThenEditingStop.swift
+   └── Motivo: Uso de sleep() sem uso de Thread.sleep ou asyncAfter. Pode ser desabilitado por meio de mocking.
+[166/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: badf3e36_testSimpleCollection.swift
+   └── Motivo: Uso de Xcode e Swift de forma correta e sem dependências de rede reais.
+[167/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_testWhenRecentlyStartedImportAndSyncAuthStateIsActiveAndHasNotSyncedDesktopDeviceThenNoPixelFired.swift
+   └── Motivo: Uso de await com timeout que não é necessário na atual versão do teste, pois o desempenho está controlado e apenas a espera do primeiro pixel é realizada.
+[168/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 149 (char 194) | 7e744a6c_test_compareExchange_releasing_sequentiallyConsist.swift
+[169/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 88b31efa_test_weakCompareExchange_acquiring_acquiring.swift
+   └── Motivo: Usa `sleep()` e `Thread.sleep()` com tempos fixos para determinar se é FLAKY.
+[170/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: be567dd4_test_load_sequentiallyConsistent.swift
+   └── Motivo: Usagem de thread.sleep().
+[171/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 4c12af53_testValidHeaderFieldNames.swift
+   └── Motivo: Uso de strings em uma lista de headers sem manipulação de strings.
+[172/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 85363764_test_weakCompareExchange_relaxed.swift
+   └── Motivo: Usos adequados de Lock, Thread.sleep e asyncAfter para evitar flakiness no contexto do teste.
+[173/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 56d742ce_test_compareExchange_acquiring.swift
+   └── Motivo: Uso de defer para evitar thread-safety issues, mas também pode causar desempenho baixo em alguns casos de uso, pois o sistema operacional não sabe quando esperar a liberação do lock.
+[174/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: nuke_testPolicyAutomaticGivenTwoRequests.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo, o que pode causar intermitência no teste.
+[175/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 65fbbe56_test_wrappingIncrementThenLoad_releasing.swift
+   └── Motivo: Não há sinais de Flakiness (incerteza) ou indícios de dependência mágica no uso de threads na operação wrappingIncrementThenLoad.
+[176/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Alamofire_testThatExpiredCertificateRequestFailsWhenPinningLeafCertificateWithCertificateChainValidation.swift
+   └── Motivo: Uso de `sleep()` para controlar tempo de espera, o que pode ser considerado uma característica flake.
+[177/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 115 (char 163) | duck_duck_testClearDataUsingLegacyContainer.swift
+[178/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 750083d1_testTimesOperatorInlinedForDoubles.swift
+   └── Motivo: Nenhuma dependência de animações ou rede reais que possam causar flakiness.
+[179/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 124 (char 169) | ._Signal_testThingsThatLookLikeGroupIdNotScrubbed.swift
+[180/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 108 (char 156) | duck_duck_testBarStateHiddenWhenScrollUpUpdatesToRevealedState.swift
+[181/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: ccce182b_test_loadThenWrappingIncrement_relaxed.swift
+   └── Motivo: Uso de `loadThenWrappingIncrement` com operações básicas que não afetam o estado da thread, o que faz com que a implementação seja considerada estável.
+[182/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 150 (char 198) | 10baf071_testStructsWorkAsByteToMessageDecoders.swift
+[183/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 112 (char 160) | 5f73351c_testReportFullyDisplayed_GetsDispatchedOnMainQueue.swift
+[184/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Signal_testBuildParametersHappyPath.swift
+   └── Motivo: Uso de `localPqLastResortPreKey` sem injeção e chamada de rede reais (URLSession).
+[185/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 80 (char 127) | ._Vapor_testCorrectResponseOrder.swift
+[186/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_Composable_testRunEscapeFailure.swift
+   └── Motivo: Uso de SystemDate() sem injeção de date.
+[187/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: c5a6624d_testClearBadgeValueOnActivitiesTabSelected.swift
+   └── Motivo: Uso de `advance()` e chamadas de rede reais (URLSession) são usados corretamente, mas não há sinais de alerta para Flakiness no código apresentado.
+[188/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testThatAttachedDataIsPassed.swift
+   └── Motivo: Uso de `sleep()` sem expectativa e dependência de `Date()` no sistema.
+[189/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 8fc2a767_testJumpBackInConfiguredFalse.swift
+   └── Motivo: Uso de markContextualHintConfiguration() com um contexto configurado, o que não é uma característica de FLAKY.
+[190/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_testHandleURLChange_MultipleCallsWithinOneSecond_ReturnsDuplicateNavigation.swift
+   └── Motivo: Uso de `sleep()` em conjunto com outras operações.
+[191/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 47 (char 92) | ._firefox_testShareSheetSendToDevice.swift
+[192/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 7967297c_testDelayRetryStrategyDidRetried.swift
+   └── Motivo: Uso de `await` para atualizar o valor do `called` sem necessidade, evitando a chamada de rede necessária. Essa técnica não garante um delay fixo.
+[193/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._GRDB_testObserverInvalidation2.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo.
+[194/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: firefox_testCurrentHistoryItemSetAfterVisitingPage.swift
+   └── Motivo: Uso de `wait(for:)` sem expectativa.
+[195/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_test_WhenRemoveCookiesForDomains_ThenUnaffectedLeftBehind.swift
+   └── Motivo: Uso de Thread.sleep() com tempo fixo sem necessidade de Mocks/Stubs.
+[196/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 207 (char 255) | 0905f477_test_weakCompareExchange_relaxed.swift
+[197/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SwiftNIO_waitForUpgraderToBeRemoved.swift
+   └── Motivo: 
+[198/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 705c57ee_testLoadData.swift
+   └── Motivo: Uso de X XCTAssertEqual com resultado padrão.
+[199/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 76ba6e42_testEncoding_optionalImportMessage.swift
+   └── Motivo: Nenhuma anomalia de desempenho detectada.
+[200/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 01752fa3_test_create_destroy.swift
+   └── Motivo: Não há sinais de Flakiness detectados nesse exemplo simples de teste Unitário em Swift.
+[201/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 36ab30c7_testModel_whenInitialized_hasNoViewControllers.swift
+   └── Motivo: Uso de XCTAssert.count() sem usar uma Mock para testar o número de view controllers.
+[202/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 139 (char 187) | Swift_package_testAsyncStreamHighLevelAPI.swift
+[203/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: nuke_testThatItemsAreRemovedWhenTTLIsReached.swift
+   └── Motivo: Uso de DispatchQueue.asyncAfter sem usar um temporizador.
+[204/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_test_WhenClearingDefaultPersistence_ThenLeaveFireproofedCookies.swift
+   └── Motivo: Uso de await no metodo clear() com dataStore, pode causar uma interrupção do teste.
+[205/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 147 (char 192) | 674955e6_testWithMutableWritePointerWithMinimumSpecifiedAdj.swift
+[206/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SwiftNIO_testTaskCancel_whenStreaming_andNotSuspended.swift
+   └── Motivo: Uso de System Date e iOS version em teste, sem injeção.
+[207/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 136 (char 184) | 4863ae17_test_bitwiseAndThenLoad_sequentiallyConsistent.swift
+[208/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 267 (char 315) | GRDB_testDatabasePoolReleaseMemoryClosesReaderConnections.swift
+[209/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 249 (char 294) | ._SwiftNIO_testEcnAndPacketInfoReceive.swift
+[210/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 234 (char 282) | 52bc5cab_testConnectionShutdownIsCalledOnActiveConnections.swift
+[211/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 3ff43566_testTokenSequencesWithMissingChild.swift
+   └── Motivo: Uso de XCTStatusToken com um valor não fixo que não é esperado, o que pode indicar uma dependência de eventos reais no teste.
+[212/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 861b39ea_testXcodeLibraries_AreNotInApp.swift
+   └── Motivo: Nenhum sinal de flakiness observado.
+[213/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testCustomDelegate.swift
+   └── Motivo: Uso de `sleep()` e `Date.now()` sem uso de Mocks/Stubs.
+[214/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 488ae8be_test_compareExchange_acquiringAndReleasing_sequent.swift
+   └── Motivo: Uso de `defer` para manter a integridade do teste, evitando que o valor da v seja alterado em sequência durante o teste.
+[215/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 107 (char 152) | GRDB_testCachedStatementsAreNotShared.swift
+[216/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d46d19e3_testNotLimited.swift
+   └── Motivo: Uso de `sleep()` com valor fixo, não usado em este teste.
+[217/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Alamofire_testThatUploadingMultipartFormDataAboveMemoryThresholdStreamsFromDisk.swift
+   └── Motivo: Uso de `response` e `expectation` sem manipulação dos dados em tempo real para evitar Flakiness
+[218/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SentryCocoa_testFlush_BlocksCallingThread_TimesOut.swift
+   └── Motivo: Uso de `sleep()` sem uso de thread safe sleep functions.
+[219/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 88 (char 134) | Vapor_testRequestBodyBackpressureWorksWithAsyncStreaming.swift
+[220/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 76 (char 124) | f22fd16b_testCurrencyMoneyFragment_EuroInUS.swift
+[221/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: GRDB_testReaderInDeferredTransactionDuringDefaultTransaction.swift
+   └── Motivo: Uso de `asyncAfter` e chamadas reais de rede sem uso de Mocks/Stubs, além de dependências da Data/Hora do sistema (Date()) sem injeção.
+[222/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 54d53caf_testWhenNoDebuggerAttached_TrackerInitialized.swift
+   └── Motivo: Uso de `givenInitializedTracker()` sem injeção de informações sobre o estado do monitorador Sentry ANR V1.
+[223/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_package_testAsyncStreamHighLevelAPI.swift
+   └── Motivo: Uso de `sleep()` e chamadas reais de rede sem uso de Mocks/Stubs.
+[224/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 113 (char 158) | ._SwiftNIO_testCancelledScheduledTasksDoNotHoldOnToRunClosure.swift
+[225/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 0cc2a1cc_test_weakCompareExchange_relaxed_acquiring.swift
+   └── Motivo: Uso adequado de Weak Compare Exchange e Thread Safety.
+[226/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._firefox_testCurrentHistoryItemSetAfterVisitingPage.swift
+   └── Motivo: Nenhuma característica de descrever.
+[227/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 150 (char 195) | 499bf7d4_test_didPasteSearchTermAction_returnsExpectedState.swift
+[228/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 120 (char 168) | 59684e5e_testCloseEventBeforeFirstSettings.swift
+[229/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 8b8eaffb_test_weakCompareExchange_acquiringAndReleasing_rel.swift
+   └── Motivo: O uso de `weakCompareExchange` com sucessoOrdering `.acquiringAndReleasing`.
+[230/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 04270994_testRequestDataDeletion.swift
+   └── Motivo: Não um código testado por mocking com Mockable, mas sim uma chamada direta do método da API.
+[231/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 220 (char 265) | 878bb278_test_compareExchange_relaxed_sequentiallyConsisten.swift
+[232/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: efc0649a_test_weakCompareExchange_acquiringAndReleasing.swift
+   └── Motivo: Nenhum sinal de um problema de desempenho, mas pode ser um caso de regra sem exclusão ou exclusão.
+[233/356] ⚠️ ERRO API: Unterminated string starting at: line 4 column 13 (char 58) | ea9d0519_test_shouldNotPresentSyncedHint_WithOverlayMode.swift
+[234/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Signal_testBuildParametersHappyPath.swift
+   └── Motivo: Uso de thread.sleep() com tempo fixo e uso de Mocks/Stubs para redirecionar chamadas de rede reais.
+[235/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 140 (char 188) | de435458_testUpdate_noSyncMessage.swift
+[236/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Swift_Package_testSwiftRunSIGINT.swift
+   └── Motivo: Uso de `processOutput` sem a necessidade de esperar o resultado do processamento. O código espera apenas que o processo terminará e então verifique se a saída foi 'done'.
+[237/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testProgressUpdated.swift
+   └── Motivo: Uso de Date() sem injeção para determinar a hora atual.
+[238/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 107 (char 152) | firefox_testPrivateHomepageViewController_simpleCreation_hasNoLeaks.swift
+[239/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: firefox_testHamburgerMenuNewPrivateTab.swift
+   └── Motivo: Nenhum sinal de alerta, mas pode haver dependência de UI ou condicionamento aleatório no resultado do teste.
+[240/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 193 (char 238) | 2b1dd686_test_weakCompareExchange_acquiringAndReleasing.swift
+[241/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._signal_test_waitsForSetup.swift
+   └── Motivo: Uso de Thread.sleep() com tempo fixo.
+[242/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 106 (char 152) | 052df048_testOverlongURIParsing.swift
+[243/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 96 (char 142) | ._GRDB_testDatabasePoolReleaseMemoryClosesReaderConnections.swift
+[244/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: firefox_testOpenLinkFromPDF.swift
+   └── Motivo: Uso de `mozWaitForValueContains` com um valor fixo (1.0) e uma semente aleatória, o que não é representativo do código em questão.
+[245/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 0024cac8_test_compareExchange_relaxed.swift
+   └── Motivo: Uso de defer no final do método, o que pode causar um erro em futuras chamadas da thread.
+[246/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 75 (char 123) | 6be826f8_testStreamIDsAreStrideable.swift
+[247/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testPriorityUpdated.swift
+   └── Motivo: Uso de threads com tempos fixos sem necessidade de espera em um ambiente dinâmico como Mac OS X.
+[248/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Maccy_testHideAndShowMenubarIcon.swift
+   └── Motivo: Nenhum sinal de comportamento irregular ou inconsistente observado durante o teste.
+[249/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 5fc6eb38_testThatHostManagerIsNotifiedWhenStartListeningIsC.swift
+   └── Motivo: Uso de 'networkReachabilityStatus' sem uso de Mocks/Stubs.
+[250/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 140 (char 185) | 31ce35a3_testThatDataResponseSerializerFailsWhenFileURLIsNi.swift
+[251/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 125 (char 173) | ._duck_duck_test_WhenCookiesAreFromPreviousAppWithContainers_ThenTheyAreConsumed.swift
+[252/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SwiftNIO_testRepeatedTaskThatIsCancelledAfterRunningAtLeastTwiceNotifies.swift
+   └── Motivo: Uso de Thread.sleep() com um tempo fixo.
+[253/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_test_WhenClearingDataAfterUsingContainer_ThenCookiesAreMigratedAndOldContainersAreRemoved.swift
+   └── Motivo: Uso de `sleep()` com tempo fixo para garantir a execução completa do teste.
+[254/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testThatItemsAreRemovedWhenTTLIsReached.swift
+   └── Motivo: Uso de `Date()` e `Date.now` sem injeção, indicando que o testador pode mudar os dados do sistema para teste.
+[255/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 71a864b9_test_weakCompareExchange_releasing_sequentiallyCon.swift
+   └── Motivo: Utilização adequada de Atomic Property para garantir a consistência dos resultados.
+[256/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 126 (char 174) | a81217a3_testPrintStatement.swift
+[257/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: c103d06d_testPostiveIntegerModulo.swift
+   └── Motivo: Uso de XCTAssert.evaluate(), que é uma biblioteca nativa do iOS, evita a necessidade de usar Thread.sleep() e é mais eficiente para cálculos. O uso de sleep no final não deve impactar negativamente o desempenho dos testes.
+[258/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testCancelAsyncImageTask.swift
+   └── Motivo: Uso de Date() sem injeção e dependência de System.currentTimeMillis().
+[259/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 130 (char 178) | d11027c7_testWhenNoPerfectMatchAndOnePartialMatchThenPartia.swift
+[260/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 56 (char 104) | duck_duck_test_WhenCookiesAreFromPreviousAppWithContainers_ThenTheyAreConsumed.swift
+[261/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 164 (char 210) | duck_duck_testHandleURLChange_MultipleCallsWithinOneSecond_ReturnsDuplicateNavigation.swift
+[262/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 116 (char 161) | f209e04c_testCycleLazy.swift
+[263/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 132 (char 180) | Swift_package_testDownloadDefaultAuthenticationSuccess.swift
+[264/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 209 (char 254) | ._duck_duck_AutoconsentMessageProtocolTests.swift
+[265/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: signal_test_respectsQueueOrder.swift
+   └── Motivo: O uso de `DispatchGroup` em um contexto de teste é comum, mas não requer uma Thread.sleep para garantir a ordem da respostas.
+[266/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 181 (char 226) | 984fd700_test_weakCompareExchange_relaxed.swift
+[267/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 193 (char 238) | 39da9a60_testSpanAttributesAreIterable.swift
+[268/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 86 (char 134) | nuke_testPriorityUpdated.swift
+[269/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testPolicyAutomaticGivenTwoRequests.swift
+   └── Motivo: Uso de threads não estabelecido para execução da aplicação.
+[270/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: ad6d9795_test_compareExchange_acquiring_acquiring.swift
+   └── Motivo: Uso de `defer` para liberar o lock, que pode bloquear outros testes.
+[271/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_testWhenRecentlyStartedImportAndSyncAuthStateIsActiveAndHasSyncedDesktopDeviceThenSuccessPixelFired.swift
+   └── Motivo: Uso de await() com setTimeout() sem especificar tempo, o que pode não ser uma garantia de que a ação seja executada dentro do esperado período de tempo.
+[272/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_test_WhenSyncIsTurnedOff_ErrorHandlerSyncDidTurnOffCalled.swift
+   └── Motivo: Uso de sleep() com um tempo fixo.
+[273/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 147 (char 192) | 8e555f82_testGoAwayWithLeasedStream.swift
+[274/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_testUserscriptIntegration.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo (`5`) no final da funcãon test CosmeticRule() para evitar bloquear o teste, garantindo que a tela esteja pronta para a validação.
+[275/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d79c289b_testParseHexAddress_Overflow_ReturnsUInt64Max.swift
+   └── Motivo: Uso de `UInt64.max` sem uma semente fixa, o resultado pode variar com o sistema operacional e hardware. É recomendável usar um semente para garantir resultados consistentes.
+[276/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: nuke_testIsLoadingUpdated.swift
+   └── Motivo: Uso de wait() sem bloquear o processamento do dispositivo, não necessariamente causando flakiness.
+[277/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 28fdabf4_testWaitingHandlerPassesTheEventDownTheContext.swift
+   └── Motivo: Uso de 'fireErrorCaught' sem um bloqueador de exceções, e uma chamada reais de rede para o servidor. A segurança desse teste é baixa.
+[278/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 185 (char 230) | SentryCocoa_testStartOnTheMainThread.swift
+[279/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 106 (char 154) | SwiftNIO_testTaskCancel_whenStreaming_andNotSuspended.swift
+[280/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: dad156dc_testWhenInBrowserEmptyEditingStateWithoutVoiceSear.swift
+   └── Motivo: Uso de `showBackground`, `showPrivacyIcon` e `showCancel` sem necessidade de uma Instância de `SmallOmniBarState`.
+[281/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 129 (char 177) | 7ffa4cae_testMarkUnreadCallsAsRead.swift
+[282/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SwiftNIO_testTasksScheduledDuringShutdownAreAutomaticallyCancelled.swift
+   └── Motivo: Nenhum sinal de Flakiness detectado nesse código, ele é um teste unitário correto.
+[283/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 74be867f_testConvexPolygonAnticlockwiseWinding.swift
+   └── Motivo: Uso de Xcode para gerar em mãos, resultado esperado: Polygon normal com componente x-norte = Vector(0, 1, 1).
+[284/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._SentryCocoa_testStartOnTheMainThread.swift
+   └── Motivo: Uso de 'sleep()' com tempo fixo, não há necessidade dessa função.
+[285/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d9d64e7e_testJoinedBySequence.swift
+   └── Motivo: Uso de XCTAssertSequences com lazy() em vez de joined().
+[286/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 113 (char 161) | ._firefox_testBackArrowNavigation.swift
+[287/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 388f3b9c_testWhenAddingNewAsFavoriteThenNewEntryIsCreated.swift
+   └── Motivo: O uso de XCTAssertNil(model.bookmark(for: url)) garantiza que uma nova entidade é criada em cada teste, evitando dependências e reutilização de resultados em diferentes testes.
+[288/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Swift_Package_testCache.swift
+   └── Motivo: Uso de `XCTSkipUnless` para evitar a teste que parece errar em um sistema com versão macOS 10.15, mas mantendo uma variável de ambiente para suporte a teste em ambientes diferentes.
+[289/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 107 (char 152) | ._GRDB_testBusyModeTimeoutTooShort.swift
+[290/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 83 (char 129) | 29a1c355_testGetDispatchDataWorks.swift
+[291/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 0db1ec27_testIndicatorViewExisting.swift
+   └── Motivo: Não Flakiness: O código utiliza `kf.indicatorType` para determinar o tipo de índice e aplica um `ActivityIndicator` quando `indicatorType` for `.activity`, mas não usa `kf.indicatorType` em nenhum lugar, apenas faz verificações com `imageView.kf.indicator`.
+[292/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 133 (char 181) | a28e52a8_testWithOptionalChild.swift
+[293/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: df60de59_testUnreasonableLargeNumberOfExtensionsAreRejected.swift
+   └── Motivo: Uso de construtores com parâmetros fixos para valores aleatórios não são recomendados em testes unitários, pois podem simular situações reais.
+[294/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 135 (char 183) | duck_duck_test_whenClearingData_ThenCookiesAreRemoved.swift
+[295/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 83 (char 131) | 8fa4ccea_testSerialization_WithNoDataAndTag.swift
+[296/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: a940fabc_test_compareExchange_sequentiallyConsistent_acquir.swift
+   └── Motivo: Utilização de `compareExchange` com `successOrdering `.sequentiallyConsistent e a utilização de `load(ordering: .relaxed)` podem ajudar a evitar flakiness.
+[297/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Vapor_testWebSocketClient.swift
+   └── Motivo: Uso de `sleep()` e chamadas de rede reais sem uso de Mocks/Stubs.
+[298/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 132 (char 177) | ._GRDB_testCachedStatementsAreNotShared.swift
+[299/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 47 (char 92) | ._firefox_testOpenLinkFromPDF.swift
+[300/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 130 (char 178) | Swift_Package_testConcurrency.swift
+[301/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 146 (char 191) | kingfisher_testShouldDownloadAndCacheProcessedImage.swift
+[302/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_Package_testConcurrencyNoWarmUp.swift
+   └── Motivo: Uso de Thread.sleep() para parar o teste em tempo real, considerando que essa é uma ação normal em iOS e não é um problema comum no contexto da criação de testes.
+[303/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 4863ae17_test_loadThenWrappingDecrement_relaxed.swift
+   └── Motivo: Uso de UnsafeAtomic e defer para garantir a atualização da variação de v, mas não há dependência real de rede ou de Data/Hora do sistema que justifica esse uso.
+[304/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 97 (char 142) | 488ae8be_test_weakCompareExchange_acquiringAndReleasing_acq.swift
+[305/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 012ac66f_testFrameDelay_MoreThanMaxDuration_FrameInformatio.swift
+   └── Motivo: Uso de Thread.sleep() para controlar o tempo, que não é recomendado em códigos de teste.
+[306/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 50 (char 95) | KingFIsher_testRetrievingErrorsWithAlternativeSource.swift
+[307/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 82 (char 128) | 99f6d436_testTooSmallAndNonFinalFrameThrows.swift
+[308/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_Package_testResolutionAvoidingConflictResolutionDuringDecisionMaking.swift
+   └── Motivo: Uso de números aleatórios em String, sem semente fixa ou contexto de teste.
+[309/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._firefox_longPressLinkAndSelectShareOption.swift
+   └── Motivo: Usos de sleep e asyncAfter sem tempo fixo.
+[310/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 84 (char 138) | ._duck_duck_testUserscriptIntegration.swift
+[311/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 140 (char 188) | a869c31a_testGetCalculated_ShippingDisabled_Total.swift
+[312/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: signal_testProvisioning.swift
+   └── Motivo: Uso de UrlSessionMock() com uma URL que não é um endpoint específico do Service.
+[313/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 81b12099_testMultiplexMetadataProviderSet.swift
+   └── Motivo: Nenhuma característica que o teste seja FLAKY (intermitente).
+[314/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 95 (char 143) | 31f73922_testRetrieveWithImageProviderFail.swift
+[315/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 71 (char 117) | 04270994_testStopObserving.swift
+[316/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 156 (char 204) | 2851e335_test_loadThenWrappingIncrement_acquiringAndReleasi.swift
+[317/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._firefox_testAutofillCreditCardsToggleOnOoff.swift
+   └── Motivo: Utilizo frameworks de Teste com parâmetros passados para reutilizar comandos como GET, POST e PUT.
+[318/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 04d95fd4_testSingletonsAreEnabledAndCanBeReadMoreThanOnce.swift
+   └── Motivo: Uso de `true` como afirmativa, necessita de um parâmetro para verificar se é verdade, o que não é o caso.
+[319/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Vapor_testRequestBodyBackpressureWorksWithAsyncStreaming.swift
+   └── Motivo: Teste com uso de sleep() e Thread.sleep() com tempo fixo, não há dependência de rede ou Mocks/Stubs utilizados.
+[320/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_test_WhenClearingDefaultPersistence_ThenLeaveFireproofedCookies.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo em um contexto de teste, que pode dificultar a reproducibilidade dos testes.
+[321/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 106 (char 154) | 3e4d1953_test_weakCompareExchange_relaxed_relaxed.swift
+[322/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Signal_testBuildParametersWithInvalidDevice.swift
+   └── Motivo: Uso de `unwrapSuccess` no parâmetro parameters e um cast seguro.
+[323/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 139 (char 184) | ._Alamofire_testThatUploadingMultipartFormDataAboveMemoryThresholdStreamsFromDisk.swift
+[324/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 123 (char 171) | firefox_testShareSheetSendToDevice.swift
+[325/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testImagePreviewsAreDeliveredFromMemoryCacheSynchronously.swift
+   └── Motivo: Uso de threads não bloqueantes e chamadas de rede reais sem uso de Mocks/Stubs.
+[326/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 164 (char 210) | SwiftNIO_testTouchFile.swift
+[327/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 9d3b8c1a_test_exchange_sequentiallyConsistent.swift
+   └── Motivo: 
+[328/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 72 (char 118) | f65cdcf2_testThatImagesAreRemovedOnMemoryWarnings.swift
+[329/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_package_testCommandPluginInvocation.swift
+   └── Motivo: Uso de Threads.sleep() sem expectativa.
+[330/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 161 (char 206) | nuke_testCancelAsyncImageTask.swift
+[331/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: a869c31a_testRewardIsAvailable_LimitedBaseReward_NotBacked.swift
+   └── Motivo: Uso de `nil` para limiar limites e realizar testes com informações não disponíveis.
+[332/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 152 (char 200) | SwiftNIO_testTasksScheduledDuringShutdownAreAutomaticallyCancelled.swift
+[333/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 80 (char 128) | 46d90662_testPreparedURL.swift
+[334/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: GRDB_test_async_observationLifetime_early_release.swift
+   └── Motivo: Uso de `dbQueue.write` com scheduling async(onQueue: .main) não é um requisito necessário para garantir a vida útil da observação. Os valores devem ser escritos sincronamente.
+[335/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: signal_test_waitsForSetup.swift
+   └── Motivo: Uso de `sleep()` com tempo fixo para manter a sincronização entre as chamadas do servidor, o que pode causar problemas no teste.
+[336/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: fea50844_testEmptyMachineValueFollowedByDefaultNoError.swift
+   └── Motivo: Uso de `Netrc.from(content)` com uma string fixa que contém informações de rede, o que não é um teste de dependência em vez de um fluxo controlado por meio de uma URL.
+[337/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._GRDB_testReaderInDeferredTransactionDuringDefaultTransaction.swift
+   └── Motivo: Uso de `sleep()` em uma thread não é uma característica típica do Xcode, e nem há uso explícito de `Thread.sleep()`, `asyncAfter` ou outros mecanismos que possam causar flakiness nesse caso.
+[338/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 204 (char 252) | swift_snapshot_testPrecision.swift
+[339/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Alamofire_testThatExpiredCertificateRequestFailsWhenPinningLeafCertificateWithCertificateChainValidation.swift
+   └── Motivo: Uso de `Date()` e `URLSession` sem injeção, além de dependência de Data/Hora do sistema sem injeção.
+[340/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 88 (char 136) | firefox_longPressLinkAndSelectShareOption.swift
+[341/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 01752fa3_test_weakCompareExchange_acquiring_relaxed.swift
+   └── Motivo: Uso de `weakCompareExchange` com sucessoOrdering `.acquiring`, o que não é um requisito para a operação.
+[342/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._signal_test_messageIsSent.swift
+   └── Motivo: Teste de código com grande quantidade de informações e dependências complexas.
+[343/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 5c66127b_testGoToDiscoveryWithSubcategoryName_ValidSubcateg.swift
+   └── Motivo: Uso de `urlSession` com resultado real sem uso de Mocks/Stubs, mas não há evidências de que isso afete o fluxo de testes.
+[344/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._nuke_testIsLoadingUpdated.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo.
+[345/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 85 (char 133) | 7b1cdd8b_testCaptureReplayEvent.swift
+[346/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: ed5b0bda_testUIActionClick_shouldBeExpectedValue.swift
+   └── Motivo: Uso de XCTAssert, que é uma biblioteca independente da plataforma e do sistema operacional que testa os testes de UI, não usa thread.sleep ou Thread.sleep.
+[347/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: duck_duck_AutoconsentBackgroundTests.swift
+   └── Motivo: Uso adequado de `DispatchQueue.main.asyncAfter` para evitar bloqueios e garantir a ordem do teste.
+[348/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 154 (char 202) | signal_test_messageIsSent.swift
+[349/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._duck_duck_ContentBlockingRulesTests.swift
+   └── Motivo: Não observado.
+[350/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 130 (char 178) | Vapor_testCorrectResponseOrder.swift
+[351/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: ._Swift_package_testDownloadDefaultAuthenticationSuccess.swift
+   └── Motivo: Uso de Date() para obter hora atual, sem dependência de Data/Hora do sistema.
+[352/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: d6e8a177_testEventLoopFutureOrThrows.swift
+   └── Motivo: Não apresenta sinais de Flakiness.
+[353/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 0afb2fa1_testFoo.swift
+   └── Motivo: Uso de XCTAssertEqual() para verificar expectativa, o que é uma boa prática e comumente recomendada.
+[354/356] ❌ FN (Era Flaky -> Disse Clean)
+   └── Arq: Swift_Package_testResolutionAvoidingConflictResolutionDuringDecisionMaking.swift
+   └── Motivo: Uso de Thread.sleep() não é necessário e faz parte do fluxo de teste.
+[355/356] ⚠️ ERRO API: Expecting ',' delimiter: line 4 column 153 (char 198) | ._duck_duck_test_WhenSyncIsTurnedOff_ErrorHandlerSyncDidTurnOffCalled.swift
+[356/356] ✅ TN (Era Clean -> Disse Clean)
+   └── Arq: 937f61f3_testJSONPostStringError.swift
+   └── Motivo: Uso de `sleep()` com um tempo fixo (6s) não está garantido no dispositivo sendo testado. Isso pode afetar a disponibilidade do teste e, consequentemente, sua precisão.
+
+==================================================
+📊 RESULTADO FINAL
+Acurácia: 48.31% | F1-Score: 0.00%
+TP: 0 | TN: 100 | FP: 0 | FN: 107
+==================================================

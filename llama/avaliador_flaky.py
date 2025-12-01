@@ -18,8 +18,6 @@ NON_FLAKY_DIR = "./nao-flaky"
 # Diretório temporário apenas para extrair o zip do 'nao-flaky'
 TEMP_DIR = "./temp_dataset" 
 
-DELAY_ENTRE_REQUESTS = 6
-
 SYSTEM_PROMPT = """
 Você é um Engenheiro de QA Sênior especialista em iOS e Swift.
 Sua tarefa é analisar o código de um Teste Unitário ou UI Test e classificar se ele é FLAKY (intermitente) ou NÃO.
@@ -40,18 +38,25 @@ Sempre que eu enviar um código, analise e responda APENAS um objeto JSON com es
   "reason": "Explicação técnica sucinta em 1 frase."
 }
 """
+LOG_FILE = "output_avaliador.txt"
+
+def log(msg):
+    """Registra saída no terminal e no arquivo."""
+    print(msg)
+    with open(LOG_FILE, "a", encoding="utf-8") as f:
+        f.write(msg + "\n")
 
 def descompactar_zip(zip_path, pasta_destino):
     """Apenas descompacta o arquivo zip."""
     if not os.path.exists(zip_path):
-        print(f"⚠️ Aviso: Zip não encontrado: {zip_path}")
+        log(f"⚠️ Aviso: Zip não encontrado: {zip_path}")
         return False
     try:
         with zipfile.ZipFile(zip_path, 'r') as zip_ref:
             zip_ref.extractall(pasta_destino)
         return True
     except Exception as e:
-        print(f"Erro ao extrair {zip_path}: {e}")
+        log(f"Erro ao extrair {zip_path}: {e}")
         return False
 
 def listar_arquivos_swift(diretorio_base):
@@ -67,24 +72,30 @@ def listar_arquivos_swift(diretorio_base):
     return arquivos
 
 
-def analisar_com_chat(codigo_swift, chat):
+def analisar_com_chat(codigo_swift):
     try:
-        chat["messages"].append({
-            "role": "user",
-            "content": (
-                "Analise este código Swift e responda ESTRITAMENTE em JSON puro. "
-                "NÃO adicione explicações fora do JSON.\n\n"
-                "Código:\n```swift\n"
-                f"{codigo_swift}\n"
-                "```\n"
-                "Formato obrigatório:\n"
-                "{\n"
-                '  "is_flaky": true/false,\n'
-                '  "confidence": "High" ou "Low",\n'
-                '  "reason": "Explicação técnica sucinta."\n'
-                "}\n"
-            )
-        })
+        chat = {
+            "messages": [
+                {"role": "system", "content": SYSTEM_PROMPT},
+                {
+                    "role": "user",
+                    "content": (
+                        "Analise este código Swift e responda ESTRITAMENTE em JSON puro. "
+                        "NÃO adicione explicações fora do JSON.\n\n"
+                        "Código:\n```swift\n"
+                        f"{codigo_swift}\n"
+                        "```\n"
+                        "Formato obrigatório:\n"
+                        "{\n"
+                        '  "is_flaky": true/false,\n'
+                        '  "confidence": "High" ou "Low",\n'
+                        '  "reason": "Explicação técnica sucinta."\n'
+                        "}\n"
+                    )
+                }
+            ],
+            "model": "llama3.2:1b"
+        }
 
         response = ollama.chat(
             model="llama3.2:1b",
@@ -93,16 +104,12 @@ def analisar_com_chat(codigo_swift, chat):
 
         texto = response["message"]["content"]
 
-        # 1. Tenta achar um bloco JSON no texto (mesmo se vier texto extra)
-        match = re.search(r"\{[\s\S]*\}", texto)
-        if match:
-            texto_json = match.group(0)
-        else:
-            # Se não tiver JSON, falha
-            return {"error": True, "error_msg": "JSON não encontrado", "is_flaky": False}
-
-        # 2. Tentativa de decodificar JSON
-        return json.loads(texto_json)
+        # 1. Tenta achar um bloco JSON no texto (mesmo se vier texto extra) 
+        match = re.search(r"\{[\s\S]*\}", texto) 
+        if match: 
+            texto = match.group(0) 
+        # 2. Tentativa de decodificar JSON return json.loads(texto_json)
+        return json.loads(texto)
 
     except Exception as e:
         return {"is_flaky": False, "error": True, "error_msg": str(e)}
@@ -119,8 +126,16 @@ def enviar_feedback(chat, acertou, era_flaky, motivo_modelo):
     chat["messages"].append({"role": "user", "content": msg})
 
 def main():
-    print("🚀 Iniciando Pipeline (Pasta Local + Zip)...")
-    
+    log("🚀 Iniciando Pipeline (Pasta Local + Zip)...")
+    try:
+        if os.path.exists(LOG_FILE):
+            os.remove(LOG_FILE)
+        # cria arquivo vazio imediatamente (garante existência)
+        open(LOG_FILE, "w", encoding="utf-8").close()
+    except Exception as e:
+        # se nem mesmo isso funcionar, avisamos e continuamos (logs irão falhar depois)
+        print(f"⚠️ Não foi possível resetar/criar o arquivo de log {LOG_FILE}: {e}")
+
     # Limpa apenas o temp (onde extrairemos o zip do nao-flaky)
     if os.path.exists(FLAKY_DIR):
         shutil.rmtree(FLAKY_DIR)
@@ -132,35 +147,28 @@ def main():
     os.makedirs(NON_FLAKY_DIR)
     descompactar_zip("nao-flaky.zip", NON_FLAKY_DIR)
 
-    chat = {
-        "messages": [
-            {"role": "system", "content": SYSTEM_PROMPT}
-        ],
-        "model": "llama3.2:1b"
-    }
-
     # --- 1. PREPARAÇÃO DAS LISTAS DE ARQUIVOS ---
     
     # A) FLAKY: Ler direto da pasta local
-    print(f"📂 Lendo arquivos flaky de: {FLAKY_DIR}")
+    log(f"📂 Lendo arquivos flaky de: {FLAKY_DIR}")
     lista_flaky = listar_arquivos_swift(FLAKY_DIR)
     
     # B) NÃO-FLAKY: Extrair do Zip para o Temp e listar
     lista_nao_flaky = listar_arquivos_swift(NON_FLAKY_DIR)
     
-    print("-" * 40)
-    print(f"📄 Total Flaky (Pasta):  {len(lista_flaky)}")
-    print(f"📄 Total Clean (Zip):    {len(lista_nao_flaky)}")
-    print("-" * 40)
+    log("-" * 40)
+    log(f"📄 Total Flaky (Pasta):  {len(lista_flaky)}")
+    log(f"📄 Total Clean (Zip):    {len(lista_nao_flaky)}")
+    log("-" * 40)
 
     # --- 2. SELEÇÃO E SHUFFLE ---
     target_count = min(len(lista_flaky), len(lista_nao_flaky))
     
     if target_count == 0:
-        print("❌ Erro: Não há arquivos suficientes (verifique se as pastas/zips existem).")
+        log("❌ Erro: Não há arquivos suficientes (verifique se as pastas/zips existem).")
         return
 
-    print(f"⚖️  Selecionando {target_count} arquivos aleatórios de cada grupo.")
+    log(f"⚖️  Selecionando {target_count} arquivos aleatórios de cada grupo.")
     
     amostra_flaky = random.sample(lista_flaky, target_count)
     amostra_nao_flaky = random.sample(lista_nao_flaky, target_count)
@@ -172,14 +180,12 @@ def main():
         dataset.append((f, False))  # False = Não é Flaky
         
     random.shuffle(dataset)
-    print("🔀 Dataset embaralhado.")
+    log("🔀 Dataset embaralhado.")
 
     # --- 3. EXECUÇÃO ---
     resultados = {"TP": 0, "TN": 0, "FP": 0, "FN": 0, "Errors": 0}
     total_arquivos = len(dataset)
     start_time = time.time()
-
-    print(f"\n🕵️  PROCESSANDO (Delay {DELAY_ENTRE_REQUESTS}s)...\n")
 
     for i, (caminho, is_realmente_flaky) in enumerate(dataset):
         nome_arq = os.path.basename(caminho)
@@ -189,12 +195,11 @@ def main():
                 codigo = f.read()
             
             # Chama a LLM
-            predicao = analisar_com_chat(codigo, chat)
+            predicao = analisar_com_chat(codigo)
             
             if predicao.get("error"):
-                print(f"[{i+1}/{total_arquivos}] ⚠️ ERRO API | {nome_arq}")
+                log(f"[{i+1}/{total_arquivos}] ⚠️ ERRO API: {predicao.get("error_msg")} | {nome_arq}")
                 resultados["Errors"] += 1
-                time.sleep(DELAY_ENTRE_REQUESTS)
                 continue
 
             llm_disse_flaky = predicao.get("is_flaky", False)
@@ -216,17 +221,12 @@ def main():
                 resultados["FN"] += 1
                 status_emoji = "❌ FN (Era Flaky -> Disse Clean)"
 
-            print(f"[{i+1}/{total_arquivos}] {status_emoji}")
-            print(f"   └── Arq: {nome_arq}")
-            print(f"   └── Motivo: {reason}")
-            
-            # Feedback
-            enviar_feedback(chat, acertou, is_realmente_flaky, reason)
-            
-            time.sleep(DELAY_ENTRE_REQUESTS)
+            log(f"[{i+1}/{total_arquivos}] {status_emoji}")
+            log(f"   └── Arq: {nome_arq}")
+            log(f"   └── Motivo: {reason}")
 
         except Exception as e:
-            print(f"Erro fatal no loop: {e}")
+            log(f"Erro fatal no loop: {e}")
             resultados["Errors"] += 1
 
     # Relatório (igual ao anterior)
@@ -236,11 +236,11 @@ def main():
     recall = (resultados["TP"] / (resultados["TP"] + resultados["FN"]) * 100) if (resultados["TP"] + resultados["FN"]) > 0 else 0
     f1_score = (2 * precision * recall) / (precision + recall) if (precision + recall) > 0 else 0
 
-    print("\n" + "="*50)
-    print(f"📊 RESULTADO FINAL")
-    print(f"Acurácia: {acuracia:.2f}% | F1-Score: {f1_score:.2f}%")
-    print(f"TP: {resultados['TP']} | TN: {resultados['TN']} | FP: {resultados['FP']} | FN: {resultados['FN']}")
-    print("="*50)
+    log("\n" + "="*50)
+    log(f"📊 RESULTADO FINAL")
+    log(f"Acurácia: {acuracia:.2f}% | F1-Score: {f1_score:.2f}%")
+    log(f"TP: {resultados['TP']} | TN: {resultados['TN']} | FP: {resultados['FP']} | FN: {resultados['FN']}")
+    log("="*50)
 
 if __name__ == "__main__":
     main()
