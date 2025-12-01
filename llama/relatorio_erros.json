@@ -1,0 +1,37 @@
+[
+  {
+    "arquivo": "duck_duck_ContentBlockingRulesTests.swift",
+    "tipo": "FN",
+    "reason": "The test code uses synchronous file loading and JSON decoding, and explicitly checks for expected rule actions. There are no apparent time dependencies, network calls, random number generation, or UI-related waits that would introduce flakiness."
+  },
+  {
+    "arquivo": "nuke_testThatAttachedDataIsPassed.swift",
+    "tipo": "FN",
+    "reason": "The test uses Nuke.loadImage which is an asynchronous operation. It correctly uses XCTest expectations (`expectation` and `wait`) to handle the asynchronous nature of the image loading and network request, ensuring the test waits for the operation to complete before asserting on the results. There are no obvious time dependencies or reliance on system time."
+  },
+  {
+    "arquivo": "duck_duck_test_WhenCookiesAreFromPreviousAppWithContainers_ThenTheyAreConsumed.swift",
+    "tipo": "FN",
+    "reason": "The test relies on asynchronous operations and interactions with `WKWebsiteDataStore` and `WKHTTPCookieStore`, which are properly awaited. There are no explicit `sleep` calls or obvious time-dependent factors. Network calls are not present as the test interacts with local data stores. Randomness is not used. UI animations are not involved. Concurrency issues are not apparent."
+  },
+  {
+    "arquivo": "Swift_Package_testResolutionAvoidingConflictResolutionDuringDecisionMaking.swift",
+    "tipo": "FN",
+    "reason": "The test uses mock objects and deterministic logic. There are no apparent time dependencies, external service calls, or reliance on system time or random numbers. The assertions are based on expected outcomes from the mocked dependencies."
+  },
+  {
+    "arquivo": "duck_duck_test_whenClearingData_ThenCookiesAreRemoved.swift",
+    "tipo": "FN",
+    "reason": "The test uses asynchronous operations correctly with `await` and does not appear to have any obvious time dependencies, race conditions, or reliance on external factors like network calls or system time without proper handling."
+  },
+  {
+    "arquivo": "swift_snapshot_testNSView.swift",
+    "tipo": "FN",
+    "reason": "The provided code snippet tests UI elements on macOS and uses snapshot testing. Snapshot testing itself is deterministic and does not inherently introduce flakiness. The conditional check for GITHUB_WORKFLOW environment variable is likely to skip snapshot generation in CI environments where it might not be configured correctly, but it doesn't make the test itself flaky. There are no apparent time dependencies, network calls, random number generation, or race conditions."
+  },
+  {
+    "arquivo": "firefox_testCurrentHistoryItemSetAfterVisitingPage.swift",
+    "tipo": "FN",
+    "reason": "The test uses XCTest expectations for asynchronous operations, specifically waiting for a property change on the delegate. This is a robust way to handle asynchronous events and avoids common pitfalls like fixed `sleep` calls or relying on animations to finish implicitly."
+  }
+]
