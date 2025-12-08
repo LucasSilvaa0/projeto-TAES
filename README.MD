@@ -5,11 +5,11 @@
     - **Mantenha a estrutura das pastas**
 - Mova as pastas geradas pelo passo anterior para a pasta correspondente à LLM que deseja testar
 - Deepseek
-    - Configure as constantes `API_KEY` `URL`
+    - Instale a LLM localmente e configure a `URL`
 - Gemini
     - Configure a constante `API_KEY`
 - GPT
     - Configure as constante `API_KEY` e `OPENAI_MODEL`
 - Llama
-    - passos especificos aqui
+    - Instale a LLM localmente e ...
 - Execute o arquivo `avaliador_flaky.py`
