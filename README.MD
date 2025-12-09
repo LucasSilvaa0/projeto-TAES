@@ -11,5 +11,5 @@
 - GPT
     - Configure as constante `API_KEY` e `OPENAI_MODEL`
 - Llama
-    - Instale a LLM localmente e ...
+    - Instale o OLLAMA e no terminal execute `ollama run ollama3.1:1b`.
 - Execute o arquivo `avaliador_flaky.py`
